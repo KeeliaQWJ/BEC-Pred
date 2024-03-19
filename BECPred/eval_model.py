@@ -11,28 +11,19 @@ from rxnfp.models import SmilesClassificationModel
 logger = logging.getLogger(__name__)
 
 
-train_model_path =  pkg_resources.resource_filename("rxnfp", f"models/transformers/bert_class_ec_final")
+train_model_path =  pkg_resources.resource_filename("BECPred/model")
 
 model = SmilesClassificationModel("bert", train_model_path, use_cuda=torch.cuda.is_available())
 
-df = pd.read_pickle('data/final_df_ec.pkl')
+df = pd.read_pickle('../data/final_df_ec.pkl')
 df = df.loc[df['split']=='test']
-#df = df[df.superclass==7]
 print(df[:5])
 test_df = df.rxn
-# test_df = test_df.to_list()
 test_reactions = test_df.values.tolist()
 y_true = df.class_id
 y_true = y_true.values.tolist()
 print(y_true[:5])
 y_true = y_true
-
-# test_df.columns = ['text']
-# print(test_df)[:5]
-# test_reactions = test_df.values.tolist()
-#test_labels = test_df.class_id.values.tolist()
-#final_test_df = pd.DataFrame({'text': all_test_reactions, 'labels': test_labels })
-#final_test_df = final_test_df.sample(frac=1., random_state=42)
 
 y_preds = model.predict(test_reactions)
 
