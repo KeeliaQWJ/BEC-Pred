@@ -15,6 +15,6 @@ For all installations, we recommend using `conda` to get the necessary dependenc
 
 With these dependencies, your environment will be set up and ready to use BEC-Pred.
 
-## Pre-trained Models
+## Trained Models
 
-The pre-trained models are stored in `BECPred/model`.
+The trained models are stored in `BECPred/model`.
