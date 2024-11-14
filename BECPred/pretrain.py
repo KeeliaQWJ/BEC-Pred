@@ -15,7 +15,7 @@ config = {
   "attention_probs_dropout_prob": 0.1,
   "hidden_act": "gelu",
   "hidden_dropout_prob": 0.2,
-  "hidden_size": 2048,
+  "hidden_size": 512,
   "initializer_range": 0.02,
   "intermediate_size": 512,
   "layer_norm_eps": 1e-12,
