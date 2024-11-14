@@ -30,11 +30,11 @@ vocab_path = '../data/vocab.txt'
 
 args = {'config': config, 
         'vocab_path': vocab_path, 
-        'train_batch_size': 32,
+        'train_batch_size': 64,
         'manual_seed': 42,
         "fp16": False,
-        "num_train_epochs": 12,
-        'max_seq_length': 256,
+        "num_train_epochs": 30,
+        'max_seq_length': 512,
         'evaluate_during_training': True,
         'overwrite_output_dir': True,
         'output_dir': '../models/pretrain',
@@ -45,6 +45,6 @@ args = {'config': config,
 # optional
 model = SmilesLanguageModelingModel(model_type='bert', model_name=None, args=args, use_cuda=True)
 
-train_file = '../data/mlm_train_file.txt'
-eval_file = '../data/mlm_eval_file_1k.txt'
+train_file = '../data/mlm_train.txt'
+eval_file = '../data/mlm_test.txt'
 model.train_model(train_file=train_file, eval_file=eval_file)
